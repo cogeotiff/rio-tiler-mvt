@@ -28,7 +28,7 @@ ext_modules = cythonize(
 
 setup(
     name="rio-tiler-mvt",
-    version="0.0.1b",
+    version="0.0.1dev",
     description=u"""A rio-tiler plugin to encode tile array to MVT""",
     python_requires=">=3",
     classifiers=[
@@ -42,7 +42,7 @@ setup(
     author=u"Vincent Sarago",
     author_email="vincent@developmentseed.org",
     url="https://github.com/cogeotiff/rio-tiler-mvt",
-    license="BSD",
+    license="MIT",
     packages=find_packages(exclude=["ez_setup", "examples", "tests"]),
     include_package_data=True,
     zip_safe=False,
