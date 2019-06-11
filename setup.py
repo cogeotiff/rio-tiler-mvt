@@ -6,6 +6,10 @@ from Cython.Build import cythonize
 
 import numpy
 
+
+with open("README.md") as f:
+    long_description = f.read()
+
 inst_reqs = ["numpy", "vtzero"]
 
 vt = "vector-tile-base @ git+https://github.com/mapbox/vector-tile-base"
@@ -27,8 +31,10 @@ ext_modules = cythonize(
 
 setup(
     name="rio-tiler-mvt",
-    version="0.0.dev0",
+    version="0.0.1dev",
     description=u"""A rio-tiler plugin to encode tile array to MVT""",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     python_requires=">=3",
     classifiers=[
         "Intended Audience :: Information Technology",
