@@ -9,7 +9,7 @@ A rio-tiler plugin to translate tile array to MVT (using python-vtzero)
 
 ![](https://user-images.githubusercontent.com/10407788/57476379-72cf6000-7264-11e9-979d-bf9f486518c2.png)
 
-https://medium.com/devseed/cog-talk-part-1-whats-new-941facbcd3d1
+More on [COG Talk](https://medium.com/devseed/search?q=cog%20talk) blog posts
 
 ## Install
 

@@ -1,4 +1,3 @@
-
 import numpy 
 
 from vtzero.tile import Tile, Layer, Point, Polygon
@@ -42,7 +41,9 @@ cpdef bytes encoder(
             feature.set_point(x + sc, y - sc)
             feature.set_point(x, y - sc)
             feature.set_point(x, y)
-        
+        else:
+            raise Exception(f"Invalid geometry type: {feature_type}")
+
         # TODO: fix https://github.com/tilery/python-vtzero/issues/3
         for bidx in range(data.shape[0]):
             feature.add_property(
