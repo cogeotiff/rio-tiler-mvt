@@ -20,13 +20,7 @@ extra_reqs = {
 
 ext_options = {"include_dirs": [numpy.get_include()]}
 ext_modules = cythonize(
-    [
-        Extension(
-            "rio_tiler_mvt.mvt",
-            ["rio_tiler_mvt/mvt.pyx"],
-            **ext_options
-        )
-    ]
+    [Extension("rio_tiler_mvt.mvt", ["rio_tiler_mvt/mvt.pyx"], **ext_options)]
 )
 
 setup(
