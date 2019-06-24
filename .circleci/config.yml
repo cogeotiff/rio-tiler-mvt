@@ -51,7 +51,7 @@ jobs:
         - run:
             name: verify git tag vs. version
             command: |
-              VERSION=$(python -c 'import rio_tiler_mvt; print(rio_tiler_mvt.version)')
+              VERSION=$(python -c 'import rio_tiler_mvt; print(rio_tiler_mvt.__version__)')
               if [ "$VERSION" = "$CIRCLE_TAG" ]; then exit 0; else exit 3; fi
         - run:
             name: install dependencies
