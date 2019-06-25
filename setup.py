@@ -25,7 +25,7 @@ ext_modules = cythonize(
 
 setup(
     name="rio-tiler-mvt",
-    version="0.0.1dev",
+    version="0.0.1dev1",
     description=u"""A rio-tiler plugin to encode tile array to MVT""",
     long_description=long_description,
     long_description_content_type="text/markdown",
