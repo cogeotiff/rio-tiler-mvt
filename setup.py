@@ -12,7 +12,7 @@ with open("README.md") as f:
 
 inst_reqs = ["numpy", "vtzero"]
 
-vt = "vector-tile-base @ git+https://github.com/mapbox/vector-tile-base.git@93c87d370dd68d3710bcf20c55d336c32750246e"
+vt = "vector-tile-base @ git+https://github.com/mapbox/vector-tile-base.git"
 extra_reqs = {
     "test": [vt, "rio-tiler", "pytest", "pytest-cov"],
     "dev": [vt, "rio-tiler", "pytest", "pytest-cov", "pre-commit"],

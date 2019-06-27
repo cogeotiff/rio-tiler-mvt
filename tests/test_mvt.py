@@ -31,7 +31,7 @@ def test_mvt_encoder():
     assert len(layer.features) == 75
     feat = layer.features[0]
     assert feat.type == "point"
-    props = feat.properties
+    props = feat.attributes
     assert len(props) == 1
     assert props["band1"] == "21.08714485168457"
 
@@ -41,13 +41,13 @@ def test_mvt_encoder():
     layer = mvt.layers[0]
     feat = layer.features[0]
     assert feat.type == "polygon"
-    props = feat.properties
+    props = feat.attributes
     assert props["band1"] == "21.08714485168457"
 
     # Test band name
     vt = encoder(tile, mask, band_names=["pop"])
     mvt = vector_tile_base.VectorTile(vt)
-    props = mvt.layers[0].features[0].properties
+    props = mvt.layers[0].features[0].attributes
     assert props["pop"] == "21.08714485168457"
 
     # Test layer name
