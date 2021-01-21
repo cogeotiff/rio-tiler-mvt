@@ -1,21 +1,19 @@
 """Setup for rio-tiler-mvt."""
 
-from setuptools.extension import Extension
-from setuptools import setup, find_packages
-from Cython.Build import cythonize
-
 import numpy
-
+from Cython.Build import cythonize
+from setuptools import find_packages, setup
+from setuptools.extension import Extension
 
 with open("README.md") as f:
     long_description = f.read()
 
-inst_reqs = ["numpy", "vtzero"]
+inst_reqs = ["numpy", "vtzero", "rasterio", "shapely"]
 
-vt = "vector-tile-base @ git+https://github.com/mapbox/vector-tile-base.git"
+vtb = "vector-tile-base @ git+https://github.com/mapbox/vector-tile-base.git"
 extra_reqs = {
-    "test": [vt, "rio-tiler", "pytest", "pytest-cov"],
-    "dev": [vt, "rio-tiler", "pytest", "pytest-cov", "pre-commit"],
+    "test": [vtb, "rio-tiler~=2.0rc4", "pytest", "pytest-cov"],
+    "dev": [vtb, "rio-tiler~=2.0rc4", "pytest", "pytest-cov", "pre-commit"],
 }
 
 ext_options = {"include_dirs": [numpy.get_include()]}
@@ -42,7 +40,7 @@ setup(
     author_email="vincent@developmentseed.org",
     url="https://github.com/cogeotiff/rio-tiler-mvt",
     license="MIT",
-    packages=find_packages(exclude=["ez_setup", "examples", "tests"]),
+    packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     zip_safe=False,
     install_requires=inst_reqs,
