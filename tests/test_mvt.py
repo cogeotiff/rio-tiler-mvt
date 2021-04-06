@@ -1,4 +1,4 @@
-"""tests ard_tiler.mosaic."""
+"""tests rio_tiler_mvt."""
 
 import os
 
