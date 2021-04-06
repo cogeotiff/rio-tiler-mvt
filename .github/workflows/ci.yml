@@ -59,7 +59,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install tox
+          python -m pip install tox numpy
 
       - name: Set tag version
         id: tag
