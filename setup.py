@@ -12,8 +12,8 @@ inst_reqs = ["numpy", "vtzero", "rasterio", "shapely"]
 
 vtb = "vector-tile-base @ git+https://github.com/mapbox/vector-tile-base.git"
 extra_reqs = {
-    "test": [vtb, "rio-tiler~=2.0rc4", "pytest", "pytest-cov"],
-    "dev": [vtb, "rio-tiler~=2.0rc4", "pytest", "pytest-cov", "pre-commit"],
+    "test": [vtb, "rio-tiler>=2.0", "pytest", "pytest-cov"],
+    "dev": [vtb, "rio-tiler>=2.0", "pytest", "pytest-cov", "pre-commit"],
 }
 
 ext_options = {"include_dirs": [numpy.get_include()]}

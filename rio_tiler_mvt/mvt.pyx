@@ -1,4 +1,6 @@
 
+import warnings
+
 import numpy
 cimport numpy
 
@@ -59,6 +61,21 @@ cpdef bytes pixels_encoder(
         feature.commit()
 
     return mvt.serialize()
+
+
+cpdef bytes encoder(
+    data,
+    mask,
+    list band_names = [],
+    str layer_name = "my_layer",
+    str feature_type = "point",
+):
+    """Compatibility with previous version."""
+    warnings.warn(
+        "'mvt.encoder' function will be deprecated in next version, please use 'mvt.pixels_encoder'",
+        DeprecationWarning,
+    )
+    return pixels_encoder(data, mask, band_names, layer_name, feature_type)
 
 
 cpdef bytes shapes_encoder(

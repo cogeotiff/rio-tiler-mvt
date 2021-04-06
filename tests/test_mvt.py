@@ -7,6 +7,7 @@ import vector_tile_base
 
 from rio_tiler.io import COGReader
 from rio_tiler_mvt import pixels_encoder, shapes_encoder
+from rio_tiler_mvt.mvt import encoder
 
 
 def test_pixels_encoder():
@@ -56,6 +57,11 @@ def test_pixels_encoder():
     assert len(mvt.layers) == 1
     layer = mvt.layers[0]
     assert layer.name == "facebook"
+
+    with pytest.warns(DeprecationWarning):
+        vt = encoder(tile, mask)
+        mvt = vector_tile_base.VectorTile(vt)
+        assert len(mvt.layers) == 1
 
     # Test bad feature type
     with pytest.raises(Exception):

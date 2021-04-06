@@ -1,4 +1,4 @@
-## Next (TBD)
+## 0.0.1dev2 (2021-04-06)
 
 * update tests for new vector-tile-base version
 * add `shapes` encoding (add shapely and rasterio in requirements).
