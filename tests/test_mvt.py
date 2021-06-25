@@ -4,8 +4,8 @@ import os
 
 import pytest
 import vector_tile_base
-
 from rio_tiler.io import COGReader
+
 from rio_tiler_mvt import pixels_encoder, shapes_encoder
 from rio_tiler_mvt.mvt import encoder
 
