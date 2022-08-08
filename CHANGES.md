@@ -1,4 +1,4 @@
-## 0.0.1dev3 (2022-08-08)
+## 0.1.0 (2022-08-08)
 
 * Fix polygon and point coordinates in `pixels_encoder`
 
