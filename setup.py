@@ -10,10 +10,15 @@ with open("README.md") as f:
 
 inst_reqs = ["numpy", "vtzero", "rasterio", "shapely"]
 
-vtb = "vector-tile-base @ git+https://github.com/mapbox/vector-tile-base.git"
 extra_reqs = {
-    "test": [vtb, "rio-tiler>=2.0", "pytest", "pytest-cov"],
-    "dev": [vtb, "rio-tiler>=2.0", "pytest", "pytest-cov", "pre-commit"],
+    "test": [
+        "vector-tile-base @ git+https://github.com/mapbox/vector-tile-base.git",
+        "protobuf==3.20.1",
+        "rio-tiler>=2.0",
+        "pytest",
+        "pytest-cov",
+    ],
+    "dev": ["pre-commit"],
 }
 
 ext_options = {"include_dirs": [numpy.get_include()]}
@@ -27,7 +32,7 @@ setup(
     description="""A rio-tiler plugin to encode tile array to MVT""",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    python_requires=">=3",
+    python_requires=">=3.7",
     classifiers=[
         "Intended Audience :: Information Technology",
         "Intended Audience :: Science/Research",
@@ -35,7 +40,6 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.6",
         "Topic :: Scientific/Engineering :: GIS",
     ],
     keywords="COG MVT mapbox vectortile GIS",
