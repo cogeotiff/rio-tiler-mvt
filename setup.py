@@ -24,7 +24,7 @@ ext_modules = cythonize(
 setup(
     name="rio-tiler-mvt",
     version="0.0.1dev2",
-    description=u"""A rio-tiler plugin to encode tile array to MVT""",
+    description="""A rio-tiler plugin to encode tile array to MVT""",
     long_description=long_description,
     long_description_content_type="text/markdown",
     python_requires=">=3",
@@ -39,7 +39,7 @@ setup(
         "Topic :: Scientific/Engineering :: GIS",
     ],
     keywords="COG MVT mapbox vectortile GIS",
-    author=u"Vincent Sarago",
+    author="Vincent Sarago",
     author_email="vincent@developmentseed.org",
     url="https://github.com/cogeotiff/rio-tiler-mvt",
     license="MIT",
