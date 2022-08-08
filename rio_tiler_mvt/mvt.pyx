@@ -20,11 +20,11 @@ cpdef bytes pixels_encoder(
     str layer_name = "my_layer",
     str feature_type = "point",
 ):
-    cdef int sc = 4096 // data.shape[1]
-    cdef tuple indexes = numpy.where(mask)
+    cdef int sc = 4096 // data.shape[1]  # cell resolution
+    cdef tuple indexes = numpy.where(mask)  # Index of non-masked data
 
-    cdef tuple idx
-    cdef int x, y
+    cdef tuple
+    cdef int x, y, x_coord, y_coord
 
     if not band_names:
         band_names = [
@@ -33,23 +33,24 @@ cpdef bytes pixels_encoder(
 
     mvt = Tile()
     mvt_layer = Layer(mvt, layer_name.encode())
-    for idx in zip(indexes[1], indexes[0]):
-        x, y = idx
-        x *= sc
-        y *= sc
+    for (y, x) in zip(indexes[0], indexes[1]):
+        x_coord = sc * x
+        y_coord = sc * y
 
         if feature_type == 'point':
             feature = Point(mvt_layer)
-            feature.add_point(x + sc / 2, y - sc / 2)
+            # Point is at the center of the pixel
+            feature.add_point(x_coord + sc // 2, y_coord + sc // 2)
 
         elif feature_type == 'polygon':
             feature = Polygon(mvt_layer)
             feature.add_ring(5)
-            feature.set_point(x, y)
-            feature.set_point(x + sc, y)
-            feature.set_point(x + sc, y - sc)
-            feature.set_point(x, y - sc)
-            feature.set_point(x, y)
+            feature.set_point(x_coord, y_coord)
+            feature.set_point(x_coord + sc, y_coord)
+            feature.set_point(x_coord + sc, y_coord + sc)
+            feature.set_point(x_coord, y_coord + sc)
+            feature.set_point(x_coord, y_coord)
+
         else:
             raise Exception(f"Invalid geometry type: {feature_type}")
 
@@ -57,7 +58,7 @@ cpdef bytes pixels_encoder(
         for bidx in range(data.shape[0]):
             feature.add_property(
                 band_names[bidx].encode(),
-                str(data[bidx, idx[1], idx[0]]).encode()
+                str(data[bidx, y, x]).encode()
             )
         feature.commit()
 

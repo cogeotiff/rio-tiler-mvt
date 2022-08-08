@@ -28,10 +28,10 @@ More on [COG Talk](https://medium.com/devseed/search?q=cog%20talk) blog posts
 
 ### Requirements
 
-rio-tiler-mvt use [python-vtzero](https://github.com/tilery/python-vtzero) wrapper to encode point and polygons to MVT. Because VTZERO is a C++ library, python-vtzero is written in Cython, thus cython~=0.28 is required to compile this library.
+rio-tiler-mvt use [python-vtzero](https://github.com/tilery/python-vtzero) wrapper to encode point and polygons to MVT. Because VTZERO is a C++ library, python-vtzero is written in Cython, thus cython is required to compile this library.
 
 ```bash
-$ pip install cython~=0.28 # see https://github.com/tilery/python-vtzero#requirements
+$ pip install cython # see https://github.com/tilery/python-vtzero#requirements
 
 $ pip install rio-tiler-mvt
 ```
@@ -110,7 +110,7 @@ $ cd rio-tiler-mvt
 $ pip install -e .[dev]
 ```
 
-**Python3.7 only**
+**pre-commit**
 
 This repo is set to use `pre-commit` to run *isort*, *flake8*, *pydocstring*, *black* ("uncompromising Python code formatter") and mypy when committing new code.
 
@@ -118,4 +118,8 @@ This repo is set to use `pre-commit` to run *isort*, *flake8*, *pydocstring*, *b
 $ pre-commit install
 ```
 
-[satellite-3d](http://github.com/developmentseed/satellite-3d.git)
+## Links
+
+- **satellite-3d**: http://github.com/developmentseed/satellite-3d.git
+- **titiler-mvt**: http://github.com/developmentseed/titiler-mvt.git
+- **rio-viz**: http://github.com/developmentseed/rio-viz.git
