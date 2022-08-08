@@ -2,6 +2,10 @@
 
 * Fix polygon and point coordinates in `pixels_encoder`
 
+**breaking changes**
+
+* remove python 3.6 support
+
 ## 0.0.1dev2 (2021-04-06)
 
 * update tests for new vector-tile-base version
