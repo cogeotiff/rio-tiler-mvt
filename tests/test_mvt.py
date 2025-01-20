@@ -64,7 +64,7 @@ def test_pixels_encoder():
         assert len(mvt.layers) == 1
 
     # Test bad feature type
-    with pytest.raises(Exception):
+    with pytest.raises(Exception):  # noqa: B017
         pixels_encoder(tile, mask, feature_type="somethingelse")
 
 

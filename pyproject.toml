@@ -1,2 +1,34 @@
 [build-system]
 requires = ["setuptools>=46.4", "wheel", "cython", "numpy"]
+
+[tool.mypy]
+no_strict_optional = true
+ignore_missing_imports = true
+
+[tool.isort]
+profile = "black"
+known_first_party = ["rio_tiler_mvt"]
+known_third_party = ["rasterio", "vtzero", "shapely"]
+default_section = "THIRDPARTY"
+
+[tool.ruff]
+line-length = 90
+
+[tool.ruff.lint]
+select = [
+    "D1", # pydocstyle errors
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # flake8
+    "C",  # flake8-comprehensions
+    "B",  # flake8-bugbear
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "B905",  # ignore zip() without an explicit strict= parameter, only support with python >3.10
+    "B028",
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 12

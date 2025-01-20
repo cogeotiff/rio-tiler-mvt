@@ -12,7 +12,7 @@ inst_reqs = ["numpy", "vtzero", "rasterio", "shapely"]
 
 extra_reqs = {
     "test": [
-        "vector-tile-base @ git+https://github.com/mapbox/vector-tile-base.git",
+        # "vector-tile-base@git+https://github.com/mapbox/vector-tile-base.git",
         "protobuf==3.20.1",
         "rio-tiler>=2.0",
         "pytest",
