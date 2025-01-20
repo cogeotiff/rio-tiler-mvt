@@ -3,14 +3,14 @@
 import warnings
 
 import numpy
-cimport numpy
 
-from vtzero.tile import Tile, Layer, Point, Polygon
+cimport numpy
 
 from rasterio._features import _shapes
 from rasterio.rio.helpers import coords
 from rasterio.transform import IDENTITY
 from shapely import geometry
+from vtzero.tile import Layer, Point, Polygon, Tile
 
 
 cpdef bytes pixels_encoder(

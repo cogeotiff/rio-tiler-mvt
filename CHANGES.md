@@ -1,3 +1,7 @@
+## 0.2.0 (2025-01-20)
+
+* update python versions support
+
 ## 0.1.0 (2022-08-08)
 
 * Fix polygon and point coordinates in `pixels_encoder`
